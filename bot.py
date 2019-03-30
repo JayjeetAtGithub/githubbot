@@ -27,7 +27,7 @@ def make_gh_request(endpoint, req_type='GET', payload=None):
         'Authorization': 'Basic SmF5amVldEF0R2l0aHViOkpheWplZXRAMTk5OQ=='
     }
     if req_type == 'POST':
-        r = requests.post(endpoint, data=payload,headers=headers)
+        r = requests.post(endpoint, json=payload,headers=headers)
     elif req_type == 'GET':
         r = requests.get(endpoint,headers=headers)
     return r.status_code
