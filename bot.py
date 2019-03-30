@@ -12,8 +12,7 @@ def home():
 
 @app.route('/recv', methods=['POST'])
 def recv_webhook_event():
-    print(req.body)
-    return req.body
+    return "Vool"
 
 def make_gh_request(endpoint):
     r = requests.get(endpoint)
