@@ -22,7 +22,7 @@ def recv_webhook_event():
     return "Success"
 
 
-def make_gh_request(endpoint, req_type, payload):
+def make_gh_request(endpoint, req_type='GET', payload=None):
     if req_type == 'POST':
         r = requests.post(endpoint, data=payload)
     elif req_type == 'GET':
