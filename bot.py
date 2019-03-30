@@ -1,14 +1,14 @@
 from flask import Flask
 from flask import request as req
 from flask import render_template
-import githubbot.utils as gb
+from githubbot.utils import PULL_REQUEST_COMMENT_URL
 import requests
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return render_template('Hello')
+    return "Welcome"
 
 @app.route('/recv', methods=['POST'])
 def recv_webhook_event():
@@ -20,5 +20,5 @@ def make_gh_request(endpoint):
 
 def create_comment_on_pr(org, repo, pull):
     return make_gh_request(
-        gb.PULL_REQUEST_COMMENT_URL.format(org, repo, pull)
+        PULL_REQUEST_COMMENT_URL.format(org, repo, pull)
     )
