@@ -3,6 +3,7 @@ from flask import request as req
 from flask import render_template
 from githubbot.utils import PULL_REQUEST_COMMENT_URL
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -12,7 +13,9 @@ def home():
 
 @app.route('/recv', methods=['POST'])
 def recv_webhook_event():
-    return "Vool"
+    payload = json.loads(req.data)
+    return payload
+
 
 def make_gh_request(endpoint):
     r = requests.get(endpoint)
