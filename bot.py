@@ -23,10 +23,13 @@ def recv_webhook_event():
 
 
 def make_gh_request(endpoint, req_type='GET', payload=None):
+    headers = {
+        'Authorization': 'Bearer 0150777dfdbf70e6c8873ebe7db504de8c4fa7d4'
+    }
     if req_type == 'POST':
-        r = requests.post(endpoint, data=payload)
+        r = requests.post(endpoint, data=payload,headers=headers)
     elif req_type == 'GET':
-        r = requests.get(endpoint)
+        r = requests.get(endpoint,headers=headers)
     return r.status_code
 
 def create_comment_on_pr(org, repo, pull):
