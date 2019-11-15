@@ -24,7 +24,7 @@ def recv_webhook_event():
 
 def make_gh_request(endpoint, req_type='GET', payload=None):
     headers = {
-        'Authorization': 'Basic 11cd2582a313e0a361fae9acb69b7aa3dfa0c812'
+        'Authorization': 'Basic SmF5amVldEF0R2l0aHViOkpheWplZXRAMTk5OQ=='
     }
     if req_type == 'POST':
         r = requests.post(endpoint, json=payload,headers=headers)
