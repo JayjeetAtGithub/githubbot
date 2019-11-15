@@ -17,10 +17,10 @@ def recv_webhook_event():
     if event_type == 'pull_request':
         payload = json.loads(req.data)
         if payload['action'] == 'opened':
-            create_comment_on_pr('JayjeetAtGithub', 'git-workshop-test', payload['number'])
+            user, repo = payload['repository']['full_name'].split('/')
+            create_comment_on_pr(user, repo, payload['number'])
     
     return "Success"
-
 
 def make_gh_request(endpoint, req_type='GET', payload=None):
     headers = {
