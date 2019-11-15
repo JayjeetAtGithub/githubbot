@@ -24,7 +24,7 @@ def recv_webhook_event():
 
 def make_gh_request(endpoint, req_type='GET', payload=None):
     headers = {
-        'Authorization': 'Basic SmF5amVldEF0R2l0aHViOkpheWplZXRAMTk5OQ=='
+        'Authorization': 'Basic 11cd2582a313e0a361fae9acb69b7aa3dfa0c812'
     }
     if req_type == 'POST':
         r = requests.post(endpoint, json=payload,headers=headers)
@@ -34,7 +34,7 @@ def make_gh_request(endpoint, req_type='GET', payload=None):
 
 def create_comment_on_pr(org, repo, pull):
     payload = {
-        'body':'Thanks for opening this PR'
+        'body':'Thanks for opening this PR. Please feel free to request a review.'
     }
     return make_gh_request(
         PULL_REQUEST_COMMENT_URL.format(org, repo, pull),
